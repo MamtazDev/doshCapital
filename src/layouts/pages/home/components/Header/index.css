@@ -1,12 +1,13 @@
 .homebg {
-  border-radius: 30px;
+  border-radius: 30px !important;
   height: 600px !important;
-  width: 100vw !important;
+  width: 99vw !important;
+  /* margin: 20px; */
 }
 
 .css-1vcu4nh-MuiGrid-root {
   padding-top: 100px !important;
-  padding-bottom: 150px !important;
+  padding-bottom: 62px !important;
 }
 
 .css-1qttxc2 {
