@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -20,6 +20,9 @@ import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
+import axios from "axios";
+
+
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
@@ -30,6 +33,33 @@ function Basic(): JSX.Element {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  const navigate = useNavigate()
+
+  const handleSubmit=async(event:any)=>{
+event.preventDefault()
+
+const form = event.target
+const email = form.email.value;
+const password = form.password.value
+
+const data = {
+  email,
+  password
+}
+
+try {
+  const res = await axios.post("http://localhost:8000/api/users/login", data)
+ if(res.data.status ===200){
+  localStorage.setItem("doshToken", res.data.accessToken)
+  navigate("/")
+ }
+  
+} catch (error) {
+  console.error('Error:', error);
+}
+
+  }
 
   return (
     <BasicLayout image={bgImage}>
@@ -67,12 +97,12 @@ function Basic(): JSX.Element {
           </Grid>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
+          <MDBox component="form" role="form" onSubmit={handleSubmit}>
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" fullWidth />
+              <MDInput type="email" label="Email" fullWidth name="email"/>
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" fullWidth />
+              <MDInput type="password" label="Password" fullWidth name="password"/>
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -87,7 +117,7 @@ function Basic(): JSX.Element {
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
+              <MDButton variant="gradient" color="info" fullWidth type="submit">
                 sign in
               </MDButton>
             </MDBox>
