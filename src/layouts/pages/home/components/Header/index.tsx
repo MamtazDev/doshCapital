@@ -14,6 +14,7 @@ import Backdrop from "@mui/material/Backdrop";
 //  React TS components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
+import MDInput from "components/MDInput";
 
 //  React TS examples components
 
@@ -155,12 +156,22 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
                     >
                       <Fade in={open}>
                         <Box sx={style}>
-                          <Typography id="transition-modal-title" variant="h6" component="h2">
-                            Text in a modal
-                          </Typography>
-                          <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                          </Typography>
+                          <MDBox pt={4} pb={3} px={3}>
+                            <MDBox component="form" role="form">
+                              <MDBox mb={2}>
+                                <MDInput type="text" label="Name" variant="standard" fullWidth />
+                              </MDBox>
+                              <MDBox mb={2}>
+                                <MDInput type="email" label="Email" variant="standard" fullWidth />
+                              </MDBox>
+
+                              <MDBox mt={4} mb={1}>
+                                <MDButton variant="gradient" color="info" fullWidth>
+                                  Submit
+                                </MDButton>
+                              </MDBox>
+                            </MDBox>
+                          </MDBox>
                         </Box>
                       </Fade>
                     </Modal>
