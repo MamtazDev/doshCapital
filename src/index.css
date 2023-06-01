@@ -24,6 +24,9 @@
   padding-top: 200px;
   background-color: #22283F
 }
+.css-1wnsr1i{
+  background-color: gray !important;
+}
 
 @media screen and (min-width:1400px) {
   .MuiContainer-root {
