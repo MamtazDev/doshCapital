@@ -21,7 +21,7 @@ function Sell(): JSX.Element {
               <BookingCard
                 image={robotsImage}
                 header="WHAT WE SELL"
-                title="TRADING ROBOTS"
+                title="TRADING SOLUTIONS"
                 nature="FULLY AUTOMATED  |  BACK TESTED  |  ROBUST"
                 description="<br/><h3>Your Success is Our Success!</h3>
                 At Dosh Capital, we sell Trading Solutions, Bots, Memberships and you earn Dosh Coin – choose to buy or just jump aboard. <br/>

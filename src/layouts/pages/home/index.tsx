@@ -35,13 +35,15 @@ function HomePage(): JSX.Element {
       <Header tabValue={tabValue} tabHandler={handleSetTabValue}>
         <></>
       </Header>
-      <div style={{ padding: "0 40px", paddingTop: "200px", backgroundColor: "#22283F" }}>
+      <div className="ppppppp">
         <Card sx={{ mt: -30, px: { lg: 5 } }}>
           <Container sx={{ px: { xs: 0 } }}>
             <Sell />
           </Container>
         </Card>
-        <Team />
+        <Container sx={{ px: { xs: 0 } }}>
+          <Team />
+        </Container>
         <ContactInfo />
       </div>
       <Footer />

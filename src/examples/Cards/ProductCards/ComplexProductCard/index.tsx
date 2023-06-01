@@ -86,10 +86,10 @@ function ComplexProductCard({
         </MDBox>
         {/* <Divider /> */}
         <MDBox display="flex" justifyContent="space-between" alignItems="center" mt={3} px={1}>
-          <MDButton variant="contained" color="info" size="small" sx={{ paddingY: "1rem" }}>
+          <MDButton variant="contained" color="info" size="small" sx={{ padding: ".5rem 1.2rem" }}>
             Buy: $299
           </MDButton>
-          <MDButton variant="contained" color="info" size="small" sx={{ paddingY: "1rem" }}>
+          <MDButton variant="contained" color="info" size="small" sx={{ padding: ".5rem 1.2rem" }}>
             Rent: $200/yr
           </MDButton>
         </MDBox>

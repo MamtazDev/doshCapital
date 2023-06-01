@@ -19,9 +19,21 @@
 .css-28xbig-MuiGrid-root {
   margin: unset !important;
 }
+.ppppppp{
+  padding: 0 40px;
+  padding-top: 200px;
+  background-color: #22283F
+}
 
 @media screen and (min-width:1400px) {
   .MuiContainer-root {
     max-width: 100% !important;
+  }
+}
+@media screen and (max-width:667px) {
+  .ppppppp{
+    padding: 0 0;
+    padding-top: 200px;
+    background-color: #22283F
   }
 }
