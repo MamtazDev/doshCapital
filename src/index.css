@@ -11,3 +11,9 @@
 .css-6h1u2o {
   height: unset !important;
 }
+
+@media screen and (min-width:1400px) {
+  .MuiContainer-root {
+    max-width: 100% !important;
+  }
+}
