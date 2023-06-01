@@ -2,6 +2,12 @@
   font-family: "felix-titling-regular";
   src: url("./fonts/Felixti.TTF") format("truetype");
 }
+
 .css-wztqdw-MuiPaper-root-MuiCard-root {
   background-color: #22283f !important;
+}
+
+
+.css-6h1u2o {
+  height: unset !important;
 }

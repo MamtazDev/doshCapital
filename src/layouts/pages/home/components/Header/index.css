@@ -3,7 +3,15 @@
   height: 600px !important;
   width: 100vw !important;
 }
+
 .css-1vcu4nh-MuiGrid-root {
   padding-top: 100px !important;
-  padding-bottom: 50px !important;
+  padding-bottom: 150px !important;
+}
+
+.css-1qttxc2 {
+  height: unset !important;
+}
+.MuiContainer-root{
+  max-width: 100% !important;
 }
