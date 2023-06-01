@@ -2,13 +2,14 @@
 
 import { ReactNode, useEffect, useRef, useState } from "react";
 import "./index.css";
-import "../../../../../fonts/Felixti.TTF"
+import "../../../../../fonts/Felixti.TTF";
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Backdrop from "@mui/material/Backdrop";
 
 //  React TS components
 import MDBox from "components/MDBox";
@@ -25,7 +26,7 @@ import { Container } from "@mui/system";
 import HomeNavbar from "examples/Navbars/HomeNavbar";
 import video from "assets/hero.mp4";
 import homeBg from "assets/images/dosh/homeBg.jpg";
-import { Icon, Link } from "@mui/material";
+import { Box, Fade, Icon, Link, Modal, Typography } from "@mui/material";
 import breakpoints from "assets/theme/base/breakpoints";
 import MDButton from "../../../../../components/MDButton";
 
@@ -39,6 +40,21 @@ interface Props {
 function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
   const [mobileView, setMobileView] = useState(false);
   const videoRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
 
   return (
     <>
@@ -70,10 +86,22 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
                   </MDTypography>
                 </MDBox>
                 <MDBox mb={1}>
-                  <MDTypography variant="h1" color="white" fontWeight="bold" align="right" style={{fontFamily:"felix-titling-regular"}}>
+                  <MDTypography
+                    variant="h1"
+                    color="white"
+                    fontWeight="bold"
+                    align="right"
+                    style={{ fontFamily: "felix-titling-regular" }}
+                  >
                     AUTOMATED TRADING NETWORKING
                   </MDTypography>
-                  <MDTypography variant="h1" color="white" fontWeight="bold" align="right" style={{fontFamily:"felix-titling-regular"}}>
+                  <MDTypography
+                    variant="h1"
+                    color="white"
+                    fontWeight="bold"
+                    align="right"
+                    style={{ fontFamily: "felix-titling-regular" }}
+                  >
                     DO$HCOIN
                   </MDTypography>
                 </MDBox>
@@ -81,14 +109,27 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
                   <MDTypography variant="body2" color="white" fontWeight="bold" align="right">
                     Our Strategy stems from these two questions:
                   </MDTypography>
-                  <MDTypography variant="body2" color="white" fontWeight="light" align="right" style={{fontFamily:"footlight-mt-light-regular"}}>
+                  <MDTypography
+                    variant="body2"
+                    color="white"
+                    fontWeight="light"
+                    align="right"
+                    style={{ fontFamily: "footlight-mt-light-regular" }}
+                  >
                     How do we win a losing trade in a 6.6 trillion $ market?
                   </MDTypography>
-                  <MDTypography variant="body2" color="white" fontWeight="light" align="right" style={{fontFamily:"footlight-mt-light-regular"}}>
+                  <MDTypography
+                    variant="body2"
+                    color="white"
+                    fontWeight="light"
+                    align="right"
+                    style={{ fontFamily: "footlight-mt-light-regular" }}
+                  >
                     And, how do we do it while we sleep?
                   </MDTypography>
                   <MDBox display="flex" justifyContent={"flex-end"} mt={2}>
                     <MDButton
+                      onClick={handleOpen}
                       component={Link}
                       to={"/authentication/sign-up/cover"}
                       variant="gradient"
@@ -98,6 +139,32 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
                     >
                       {"Tell me more"}
                     </MDButton>
+
+                    <Modal
+                      aria-labelledby="transition-modal-title"
+                      aria-describedby="transition-modal-description"
+                      open={open}
+                      onClose={handleClose}
+                      closeAfterTransition
+                      slots={{ backdrop: Backdrop }}
+                      slotProps={{
+                        backdrop: {
+                          timeout: 500,
+                        },
+                      }}
+                    >
+                      <Fade in={open}>
+                        <Box sx={style}>
+                          <Typography id="transition-modal-title" variant="h6" component="h2">
+                            Text in a modal
+                          </Typography>
+                          <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                          </Typography>
+                        </Box>
+                      </Fade>
+                    </Modal>
+
                     {/* <MDButton
                       component={Link}
                       to={"/"}
@@ -123,7 +190,7 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
               zIndex: "-1",
             }}
           >
-            <img className="homebg" src={homeBg} alt="home background" style={{ width: "100%" }} />
+            <img className="homebg" src={homeBg} alt="home background" />
             {/* <video
               ref={videoRef}
               style={{ width: "100%" }}
@@ -137,7 +204,7 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
       </MDBox>
       <Grid container sx={{ px: 6, m: 8 }}>
         <Grid item xs={12}>
-          <MDBox minWidth={{ xs: "22rem", md: "25rem" }} mx="auto" ></MDBox>
+          <MDBox minWidth={{ xs: "22rem", md: "25rem" }} mx="auto"></MDBox>
           {children}
         </Grid>
       </Grid>
