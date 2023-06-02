@@ -67,9 +67,8 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
     p: 4,
   };
 
-
-  const handleSubmit = async(event:any)=>{
-    event.preventDefault()
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
 
     const form = event.target;
 
@@ -78,22 +77,20 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
 
     const data = {
       name,
-      email
-    }
+      email,
+    };
 
     // console.log(data,"dddd")
 
     try {
-      const res = await axios.post("http://localhost:8000/api/send-email", data)
-if(res.data.status===200){
-  setOpen(false)
-}
-      
+      const res = await axios.post("http://localhost:8000/api/send-email", data);
+      if (res.data.status === 200) {
+        setOpen(false);
+      }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
-
-  }
+  };
 
   return (
     <>
@@ -121,7 +118,7 @@ if(res.data.status===200){
               <Grid item xs={12} lg={6} sx={{ px: { xs: 4, lg: 0 } }}>
                 <MDBox mb={0} mt={mobileView ? 6 : 6}>
                   <MDTypography sx={{ fontSize: "12px" }} color="white" align="right">
-                     CROSSOVER TO WHAT WE DO <EastIcon />
+                    CROSSOVER TO WHAT WE DO <EastIcon />
                   </MDTypography>
                 </MDBox>
                 <MDBox mb={1}>
@@ -176,9 +173,7 @@ if(res.data.status===200){
                       size="small"
                       sx={{ mx: 2, mb: 2 }}
                     >
-                      <span style={{marginRight:"15px"}}>
-                      Tell me more
-                      </span>
+                      <span style={{ marginRight: "15px" }}>Tell me more</span>
                       <EastIcon />
                     </MDButton>
 
@@ -200,10 +195,22 @@ if(res.data.status===200){
                           <MDBox pt={4} pb={3} px={3}>
                             <MDBox component="form" role="form" onSubmit={handleSubmit}>
                               <MDBox mb={2}>
-                                <MDInput type="text" label="Name" variant="standard" fullWidth name="name"/>
+                                <MDInput
+                                  type="text"
+                                  label="Name"
+                                  variant="standard"
+                                  fullWidth
+                                  name="name"
+                                />
                               </MDBox>
                               <MDBox mb={2}>
-                                <MDInput type="email" label="Email" variant="standard" fullWidth name="email"/>
+                                <MDInput
+                                  type="email"
+                                  label="Email"
+                                  variant="standard"
+                                  fullWidth
+                                  name="email"
+                                />
                               </MDBox>
 
                               <MDBox mt={4} mb={1}>
@@ -229,12 +236,24 @@ if(res.data.status===200){
                       aria-describedby="modal-modal-description"
                     >
                       <Box sx={style}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                          Text in a modal
+                        <Typography
+                          id="modal-modal-title"
+                          variant="h6"
+                          component="h2"
+                          align="center"
+                        >
+                          Email sent successFull
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography>
+                        <MDBox mt={4} mb={1}>
+                          <MDButton
+                            onClick={childhandleClose}
+                            variant="gradient"
+                            color="info"
+                            fullWidth
+                          >
+                            Ok
+                          </MDButton>
+                        </MDBox>
                       </Box>
                     </Modal>
 
