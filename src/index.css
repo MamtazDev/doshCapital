@@ -6,7 +6,9 @@
 .css-wztqdw-MuiPaper-root-MuiCard-root {
   background-color: #22283f !important;
 }
-
+.css-jo7ai3 {
+  background-color: unset !important;
+}
 
 .css-6h1u2o {
   height: unset !important;
@@ -19,24 +21,28 @@
 .css-28xbig-MuiGrid-root {
   margin: unset !important;
 }
-.ppppppp{
+.ppppppp {
   padding: 0 40px;
   padding-top: 200px;
-  background-color: #22283F
+  background-color: #22283f;
 }
-.css-1wnsr1i{
+.css-1wnsr1i {
   background-color: gray !important;
 }
 
-@media screen and (min-width:1400px) {
+@media screen and (min-width: 1400px) {
   .MuiContainer-root {
     max-width: 100% !important;
   }
 }
-@media screen and (max-width:667px) {
-  .ppppppp{
+@media screen and (max-width: 667px) {
+  .ppppppp {
     padding: 0 0;
     /* padding-top: 200px;
     background-color: #22283F */
   }
+}
+
+.css-xpkt69 {
+  background-color: unset !important;
 }
