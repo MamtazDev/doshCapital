@@ -15,10 +15,13 @@ import Team from "./components/Team";
 import Bots from "./components/Bots";
 import Card from "@mui/material/Card";
 import Configurator from "../../../examples/Configurator";
+import { Box } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 function HomePage(): JSX.Element {
   const [tabValue, setTabValue] = useState<number>(0);
   const [prices, setPrices] = useState<string[]>(["59", "89", "99"]);
+  const theme = useTheme()
 
   const handleSetTabValue = (event: any, newValue: any) => {
     setTabValue(newValue);
@@ -35,8 +38,13 @@ function HomePage(): JSX.Element {
       <Header tabValue={tabValue} tabHandler={handleSetTabValue}>
         <></>
       </Header>
-      <div className="ppppppp">
-        <Card sx={{ mt: -30, px: { lg: 5 } }}>
+      {/* <div className="ppppppp"> */}
+      <Box sx={{
+    padding: '0 40px',
+    paddingTop: '200px',
+    backgroundColor: theme.palette.mode === 'light' ? '#f0f2f5' : '#22283F',
+  }}>
+      <Card sx={{ mt: -30, px: { lg: 5 } }}>
           <Container sx={{ px: { xs: 0 } }}>
             <Sell />
           </Container>
@@ -45,7 +53,9 @@ function HomePage(): JSX.Element {
           <Team />
         </Container>
         <ContactInfo />
-      </div>
+      </Box>
+      
+      {/* </div> */}
       <Footer />
       <Configurator />
     </PageLayout>

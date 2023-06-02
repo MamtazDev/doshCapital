@@ -30,6 +30,7 @@ import homeBg from "assets/images/dosh/homeBg.jpg";
 import { Box, Fade, Icon, Link, Modal, Typography } from "@mui/material";
 import breakpoints from "assets/theme/base/breakpoints";
 import MDButton from "../../../../../components/MDButton";
+import axios from "axios";
 
 // Declaring props types for Header
 interface Props {
@@ -56,6 +57,34 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
     boxShadow: 24,
     p: 4,
   };
+
+
+  const handleSubmit = async(event:any)=>{
+    event.preventDefault()
+
+    const form = event.target;
+
+    const name = form.name.value;
+    const email = form.email.value;
+
+    const data = {
+      name,
+      email
+    }
+
+    // console.log(data,"dddd")
+
+    try {
+      const res = await axios.post("http://localhost:8000/api/send-email", data)
+if(res.data.status===200){
+  setOpen(false)
+}
+      
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+  }
 
   return (
     <>
@@ -157,16 +186,16 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
                       <Fade in={open}>
                         <Box sx={style}>
                           <MDBox pt={4} pb={3} px={3}>
-                            <MDBox component="form" role="form">
+                            <MDBox component="form" role="form" onSubmit={handleSubmit}>
                               <MDBox mb={2}>
-                                <MDInput type="text" label="Name" variant="standard" fullWidth />
+                                <MDInput type="text" label="Name" variant="standard" fullWidth name="name"/>
                               </MDBox>
                               <MDBox mb={2}>
-                                <MDInput type="email" label="Email" variant="standard" fullWidth />
+                                <MDInput type="email" label="Email" variant="standard" fullWidth name="email"/>
                               </MDBox>
 
                               <MDBox mt={4} mb={1}>
-                                <MDButton variant="gradient" color="info" fullWidth>
+                                <MDButton variant="gradient" color="info" fullWidth type="submit">
                                   Submit
                                 </MDButton>
                               </MDBox>
