@@ -15,6 +15,7 @@ import Backdrop from "@mui/material/Backdrop";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
+import EastIcon from "@mui/icons-material/East";
 
 //  React TS examples components
 
@@ -45,6 +46,14 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [childopen, setchildOpen] = useState(false);
+  const childhandleOpen = () => setchildOpen(true);
+  const childhandleClose = () => setchildOpen(false);
+  const childModal = () => {
+    childhandleOpen();
+    handleClose();
+  };
 
   const style = {
     position: "absolute",
@@ -167,7 +176,10 @@ if(res.data.status===200){
                       size="small"
                       sx={{ mx: 2, mb: 2 }}
                     >
-                      {"Tell me more"}
+                      <span style={{marginRight:"15px"}}>
+                      Tell me more
+                      </span>
+                      <EastIcon />
                     </MDButton>
 
                     <Modal
@@ -195,7 +207,12 @@ if(res.data.status===200){
                               </MDBox>
 
                               <MDBox mt={4} mb={1}>
-                                <MDButton variant="gradient" color="info" fullWidth type="submit">
+                                <MDButton
+                                  onClick={childModal}
+                                  variant="gradient"
+                                  color="info"
+                                  fullWidth
+                                >
                                   Submit
                                 </MDButton>
                               </MDBox>
@@ -203,6 +220,22 @@ if(res.data.status===200){
                           </MDBox>
                         </Box>
                       </Fade>
+                    </Modal>
+
+                    <Modal
+                      open={childopen}
+                      onClose={childhandleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                          Text in a modal
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                        </Typography>
+                      </Box>
                     </Modal>
 
                     {/* <MDButton
