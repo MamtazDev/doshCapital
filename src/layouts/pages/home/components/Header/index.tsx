@@ -121,7 +121,7 @@ if(res.data.status===200){
               <Grid item xs={12} lg={6} sx={{ px: { xs: 4, lg: 0 } }}>
                 <MDBox mb={0} mt={mobileView ? 6 : 6}>
                   <MDTypography sx={{ fontSize: "12px" }} color="white" align="right">
-                    - CROSSOVER TO WHAT WE DO
+                     CROSSOVER TO WHAT WE DO <EastIcon />
                   </MDTypography>
                 </MDBox>
                 <MDBox mb={1}>

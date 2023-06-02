@@ -116,7 +116,7 @@ function Products(): JSX.Element {
         <MDBox mt={5}>
           <Grid container spacing={3}>
             {bots.map((product) => (
-              <Grid key={product.title} item xs={12} md={6} lg={4}>
+              <Grid key={product.title} item xs={12} md={6} lg={3}>
                 <MDBox mb={1.5} mt={1.5}>
                   <ComplexProductCard
                     image={product.image}
