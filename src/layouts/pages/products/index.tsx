@@ -116,12 +116,12 @@ function Products(): JSX.Element {
         <MDBox mt={5}>
           <Grid container spacing={3}>
             {bots.map((product) => (
-              <Grid key={product.title} item xs={12} md={6} lg={3}>
+              <Grid key={product.title} item xs={12} md={4} lg={3}>
                 <MDBox mb={1.5} mt={1.5}>
                   <ComplexProductCard
                     image={product.image}
                     title={product.title}
-                    description="If everything I did failed - which it doesn't, I think that it actually succeeds."
+                    description="I do about 500 trades a year across 4 currency pairs. I will give you a 97% return on your investment and will do it while you sleep... I am the Chaser"
                     theme={product.theme}
                   />
                 </MDBox>
