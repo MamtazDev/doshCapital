@@ -21,6 +21,8 @@ interface Props {
 }
 
 function Breadcrumbs({ icon, title, route, light }: Props): JSX.Element {
+  console.log(title,"title");
+
   const routes: string[] | any = route.slice(0, -1);
 
   return (

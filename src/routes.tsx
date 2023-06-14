@@ -121,9 +121,9 @@ const routes = [
         key: "profile",
         collapse: [
           {
-            name: "Profile Overview",
-            key: "profile-overview",
-            route: "/pages/profile/profile-overview",
+            name: "About Us",
+            key: "about us",
+            route: "/pages/profile/about-us",
             component: <ProfileOverview />,
           },
           {

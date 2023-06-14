@@ -62,12 +62,12 @@ function Footer({ company, links }: Props): JSX.Element {
           </Icon>
         </MDBox>
         by
-        <Link href={href} target="_blank">
+        <Link href="https://dustyz.com/" target="_blank">
           <MDTypography variant="button" fontWeight="medium">
             &nbsp;{name}&nbsp;
           </MDTypography>
         </Link>
-        for a better web.
+        for a better life.
       </MDBox>
       <MDBox
         component="ul"

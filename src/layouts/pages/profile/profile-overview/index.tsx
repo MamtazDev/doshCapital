@@ -87,12 +87,12 @@ function Overview(): JSX.Element {
         </MDBox>
         <MDBox pt={2} px={2} lineHeight={1.25}>
           <MDTypography variant="h6" fontWeight="medium">
-            Projects
+            There’s a lot more you will find on Dustyz
           </MDTypography>
           <MDBox mb={1}>
-            <MDTypography variant="button" color="text">
+            {/* <MDTypography variant="button" color="text">
               Architects design houses
-            </MDTypography>
+            </MDTypography> */}
           </MDBox>
         </MDBox>
         <MDBox p={2}>
@@ -101,7 +101,8 @@ function Overview(): JSX.Element {
               <DefaultProjectCard
                 image={homeDecor1}
                 label="project #2"
-                title="modern"
+                // title="modern"
+                title="Dustyz.com"
                 description="As Uber works through a huge amount of internal management turmoil."
                 action={{
                   type: "internal",
@@ -121,7 +122,8 @@ function Overview(): JSX.Element {
               <DefaultProjectCard
                 image={homeDecor2}
                 label="project #1"
-                title="scandinavian"
+                // title="scandinavian"
+                title="DustyzStore.com"
                 description="Music is something that everyone has their own specific opinion about."
                 action={{
                   type: "internal",
@@ -141,7 +143,8 @@ function Overview(): JSX.Element {
               <DefaultProjectCard
                 image={homeDecor3}
                 label="project #3"
-                title="minimalist"
+                // title="minimalist"
+                title="Listings.Dustyz.com"
                 description="Different people have different taste, and various types of music."
                 action={{
                   type: "internal",
@@ -161,7 +164,8 @@ function Overview(): JSX.Element {
               <DefaultProjectCard
                 image={homeDecor4}
                 label="project #4"
-                title="gothic"
+                // title="gothic"
+                title="Social.Dustyz.com"
                 description="Why would anyone pick blue over pink? Pink is obviously a better color."
                 action={{
                   type: "internal",
