@@ -219,6 +219,7 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
                                   variant="gradient"
                                   color="info"
                                   fullWidth
+                                  type="submit"
                                 >
                                   Submit
                                 </MDButton>

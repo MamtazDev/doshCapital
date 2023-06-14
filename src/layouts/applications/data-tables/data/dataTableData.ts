@@ -1,7 +1,7 @@
 const dataTableData = {
   columns: [
     { Header: "name", accessor: "name", width: "20%" },
-    { Header: "position", accessor: "position", width: "25%" },
+    { Header: "email", accessor: "email", width: "25%" },
     { Header: "office", accessor: "office" },
     { Header: "age", accessor: "age", width: "7%" },
     { Header: "start date", accessor: "startDate" },

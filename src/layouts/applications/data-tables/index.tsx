@@ -13,8 +13,27 @@ import DataTable from "examples/Tables/DataTable";
 
 // Data
 import dataTableData from "layouts/applications/data-tables/data/dataTableData";
+import { useEffect, useState } from "react";
+
 
 function DataTables(): JSX.Element {
+  const [fetchData, setFetchData]=useState([])
+
+  const handleFetchData = ()=>{
+    fetch("http://localhost:8000/api/users")
+    .then(res=>res.json())
+    .then(data=>setFetchData(data.data))
+  }
+
+  console.log(fetchData,"fskfjksf")
+
+  const gg = {...dataTableData, rows:fetchData}
+
+
+
+  useEffect(()=>{
+    handleFetchData()
+  },[])
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -29,7 +48,7 @@ function DataTables(): JSX.Element {
                 A lightweight, extendable, dependency-free javascript HTML table plugin.
               </MDTypography>
             </MDBox>
-            <DataTable table={dataTableData} />
+            <DataTable table={gg} />
           </Card>
         </MDBox>
         <Card>
@@ -41,7 +60,7 @@ function DataTables(): JSX.Element {
               A lightweight, extendable, dependency-free javascript HTML table plugin.
             </MDTypography>
           </MDBox>
-          <DataTable table={dataTableData} canSearch />
+          {/* <DataTable table={dataTableData} canSearch /> */}
         </Card>
       </MDBox>
       <Footer />
